@@ -6,3 +6,6 @@
 
 ___
 
+### Publish Subscribe Architecture
+![Publish Subscribe Architecture](static/publish-subscribe.png)
+Source: https://learn.microsoft.com/en-us/azure/architecture/patterns/publisher-subscriber
