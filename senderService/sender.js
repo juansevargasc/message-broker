@@ -1,5 +1,6 @@
 var amqp = require('amqplib/callback_api');
 
+
 amqp.connect('amqp://localhost', function(error0, connection) {
     if (error0) {
         throw error0;
@@ -11,6 +12,12 @@ amqp.connect('amqp://localhost', function(error0, connection) {
         }
 
         var exchange = 'logs';
+
+        // Read from file that contain logs
+        // var fs = require('fs');
+        // var msg = fs.readFileSync('logs.txt', 'utf8');
+        // console.log(msg);
+
         var msg = process.argv.slice(2).join(' ') || 'The Third Try!!!! Written by: Juanse';
 
         channel.assertExchange(exchange, 'fanout', {
