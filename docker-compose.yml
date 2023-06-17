@@ -8,8 +8,7 @@ services:
       - rabbitmq
     volumes:
       - ./receiverService/data:/app/data
-    #command: ["sh", "-c", "wait-for-it rabbitmq:5672 -- python receiver.py > ./logs_from_queue.log"]
-
+    
   sender:
     build: ./senderService
     depends_on:

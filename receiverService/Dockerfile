@@ -9,8 +9,10 @@ COPY requirements.txt .
 # Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN mkdir -p /app/data/test.txt
+
 # Copy the remaining files to the container
 COPY . .
 
 # Set the entry point command
-CMD ["python", "receiver.py", ">", ".data/logs_from_queue.log"]
+CMD ["python", "receiver.py", ">", "/app/data/logs_from_queue.log"]
