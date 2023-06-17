@@ -18,7 +18,8 @@ amqp.connect('amqp://localhost', function(error0, connection) {
         // var msg = fs.readFileSync('logs.txt', 'utf8');
         // console.log(msg);
 
-        var msg = process.argv.slice(2).join(' ') || 'The Third Try!!!! Written by: Juanse';
+        var my_actual_msg = 'The Third Try!!!! Written by: Juanse';
+        var msg = process.argv.slice(2).join(' ') || my_actual_msg;
 
         channel.assertExchange(exchange, 'fanout', {
             durable: false

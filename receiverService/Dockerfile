@@ -13,4 +13,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Set the entry point command
-CMD ["python", "receiver.py"]
+CMD ["python", "receiver.py", ">", ".data/logs_from_queue.log"]

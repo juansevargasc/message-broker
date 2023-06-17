@@ -1,0 +1,14 @@
+### BEGINNING OF SAMPLE LOGS FROM SOME DATABASE ###
+
+2023-06-15 10:05:13 [INFO] Successfully connected to the database.
+2023-06-15 10:05:25 [ERROR] Failed to retrieve data from table 'users'.
+2023-06-15 10:06:02 [WARNING] Invalid query parameter: 'id'.
+2023-06-15 10:07:10 [INFO] Database backup completed successfully.
+2023-06-15 10:08:27 [ERROR] Connection to the database lost. Trying to reconnect...
+2023-06-15 10:08:40 [INFO] Successfully reconnected to the database.
+2023-06-15 10:09:55 [INFO] Query executed successfully: INSERT INTO users (id, name, email) VALUES (1, 'John Doe', 'johndoe@example.com').
+2023-06-15 10:10:20 [WARNING] Disk space usage above 90%. Clean up unnecessary data.
+2023-06-15 10:11:05 [INFO] Database server restarted.
+2023-06-15 10:11:37 [ERROR] Failed to create a new table 'orders'. Table already exists.
+
+### END OF LOGS ###

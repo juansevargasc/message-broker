@@ -1,1 +1,32 @@
-# TODO: Building docker compose
+version: '3'
+services:
+  receiver:
+    build: ./receiverService
+    depends_on:
+      - rabbitmq
+    links:
+      - rabbitmq
+    volumes:
+      - ./receiverService/data:/app/data
+    #command: ["sh", "-c", "wait-for-it rabbitmq:5672 -- python receiver.py > ./logs_from_queue.log"]
+
+  sender:
+    build: ./senderService
+    depends_on:
+      - rabbitmq
+      - receiver
+    links:
+      - rabbitmq
+    #command: ["node", "fetchLogs.js"]
+
+  rabbitmq:
+    image: rabbitmq:3.12-management
+    ports:
+      - '5672:5672'  # Port mapping for RabbitMQ default messaging port
+      - '15672:15672'  # Port mapping for RabbitMQ management interface
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "wait", "--timeout", "30", "rabbit@rabbitmq"]
+      interval: 5s
+      timeout: 30s
+      retries: 3
+
